@@ -193,8 +193,6 @@ namespace CaptDruid
         private bool ShouldWeRip()
         {
 			if (TargetCanBleed() && this.Player.GetSpellRank("Rip") != 0 && this.Target.HealthPercent > 60 && this.Player.ComboPoints >=3) return true;
-			else if (TargetCanBleed() && this.Player.GetSpellRank("Rip") != 0 && this.Target.HealthPercent > 70 && this.Player.ComboPoints >=4) return true;
-			else if (TargetCanBleed() && this.Player.GetSpellRank("Rip") != 0 && this.Target.HealthPercent > 80 && this.Player.ComboPoints >=5) return true;
             else return false;
         }
 		
