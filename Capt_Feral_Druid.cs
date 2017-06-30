@@ -260,13 +260,12 @@ namespace CaptDruid
         public override void Fight()
         {
             this.Player.Attack();
-			if (this.Player.GotDebuff("Dazed")) this.Player.Backup(5);
             //Shift in/out to heal /dd
             if (Shifted())
             {
                 this.Player.Attack();
 				this.SetCombatDistance(5);
-                if (this.Player.HealthPercent < lowHealthP && this.Player.ManaPercent >= lowManaP && !this.Player.GotBuff("Regrowth"))
+                if (this.Player.HealthPercent < lowHealthP && this.Player.ManaPercent >= lowManaP && !this.Player.GotBuff("Regrowth") && (this.Attackers.Count >= 1 || this.Player.HealthPercent <= this.Target.HealthPercent))
                 {
                     RemoveShift();
                     return;
